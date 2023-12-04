@@ -48,7 +48,9 @@ def convert_to_minutes(time_str):
 bus_found = False
 for time in weekdays_list_sorted:
     if int(convert_to_minutes(current_time)) <= int(convert_to_minutes(time)):
-        st.markdown(f"<h3 style='text-align:center;'>{time}</h3>", unsafe_allow_html=True)
+        st.markdown(
+            f"<h3 style='text-align:center;'>{time}</h3>", unsafe_allow_html=True
+        )
         bus_found = True
 
 # print no_bus_message if bus not found
