@@ -23,7 +23,7 @@ Have you ever found yourself juggling between two different bus schedules, tryin
 
 ## Screenshots
 
-![Screenshot 2023-12-05 at 01 07 01](https://github.com/eftekin/Bus-Schedule-Streamlit/assets/75522456/51050366-5c9a-44cf-a978-7ccaf3891bc3)
+<img src="https://github.com/eftekin/Bus-Schedule-Streamlit/assets/75522456/51050366-5c9a-44cf-a978-7ccaf3891bc3" width="500">
 
 ## Contributions
 
