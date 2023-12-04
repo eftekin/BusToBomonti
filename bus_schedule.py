@@ -3,6 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import streamlit as st
 from datetime import datetime
+import pytz
 
 # Downloading contents of the web page
 urls = [
@@ -28,7 +29,10 @@ for url in urls:
         weekdays_list.append(columns[0].text.strip())
 
 # get current time
-current_time = datetime.now().strftime("%H:%M")
+turkey_timezone = pytz.timezone("Europe/Istanbul")
+utc_now = datetime.utcnow()
+turkey_now = utc_now.replace(tzinfo=pytz.utc).astimezone(tz=turkey_timezone)
+current_time = turkey_now.strftime("%H:%M")
 
 # sort weekdays list
 weekdays_list_sorted = sorted(weekdays_list)
