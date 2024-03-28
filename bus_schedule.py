@@ -41,7 +41,7 @@ turkey_now = utc_now.replace(tzinfo=pytz.utc).astimezone(tz=turkey_timezone)
 current_time = turkey_now.strftime("%H:%M")
 
 # print title
-page_title = "Weekday Bus Schedule: Alibeyköy to Bomonti (50L and 50T)"
+page_title = "Weekday Bus Schedule: Alibeyköy to Bomonti"
 st.markdown(f"<h1 style='text-align:center;'>{page_title}</h1>", unsafe_allow_html=True)
 
 
