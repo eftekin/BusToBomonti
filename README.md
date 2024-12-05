@@ -1,34 +1,63 @@
-# Bus Schedule Streamlit
+# Bus Schedule Streamlit 🚍
 
-## About
+## About 📍
 
-Have you ever found yourself juggling between two different bus schedules, trying to catch the right one home from school every day? That was me until I decided to simplify my routine. This project emerged from my daily struggle of checking two different websites for bus schedules from Alibeyköy to Bomonti.
+Ever found yourself juggling between two different bus schedules, trying to catch the right one home from school every day? That was me until I decided to simplify my routine. This project emerged from my daily struggle of checking two different websites for bus schedules from **Alibeyköy** to **Bomonti**.
 
-## Features
+## Features 🌟
 
-- Scrapes bus schedule data from two websites.
+- Scrapes bus schedule data from two different websites.
 - Combines and sorts the schedules for easy viewing.
-- Displays the upcoming bus schedule based on the current time using Streamlit.
+- Displays the upcoming bus schedule based on the current time using **Streamlit**.
+- User-friendly interface to help you plan your commute efficiently.
 
-## Prerequisites
+## Prerequisites ⚙️
 
-- Python 3.x
-- [Streamlit](https://streamlit.io/) (Install using `pip install streamlit`)
+To get started with the project, you'll need the following dependencies:
 
-## How to Run
+- **Streamlit** – For running the app.
+- **Requests** – For fetching data from the websites.
+- **BeautifulSoup** – For parsing the HTML data.
+- **Pytz** – For handling time zones.
 
-1. Clone the repository: `git clone https://github.com/eftekin/Bus-Schedule-Streamlit.git`
-2. Navigate to the project directory: `cd Bus-Schedule-Streamlit`
-3. Run the script: `python bus_schedule.py`
+Ensure these dependencies are installed before running the project.
 
-## Screenshots
+## How to Run 🏃‍♂️
 
-<img src="https://github.com/eftekin/Bus-Schedule-Streamlit/assets/75522456/51050366-5c9a-44cf-a978-7ccaf3891bc3" width="500">
+1. Clone the repository:
 
-## Contributions
+```bash
+git clone https://github.com/eftekin/Bus-Schedule-Streamlit.git
+```
 
-Contributions are welcome! Feel free to open an issue or submit a pull request.
+2. Navigate to the project directory:
 
-## License
+```bash
+cd Bus-Schedule-Streamlit
+```
 
-This project is licensed under the [MIT License](LICENSE).
+3. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the app:
+
+```bash
+streamlit run bus_schedule.py
+```
+
+## Screenshots 📸
+
+Here’s a sneak peek at the app interface:
+
+![Bus Schedule Screenshot](https://github.com/eftekin/Bus-Schedule-Streamlit/assets/75522456/51050366-5c9a-44cf-a978-7ccaf3891bc3)
+
+## Contributions 🤝
+
+Contributions are welcome! Whether it’s fixing bugs, improving features, or adding new functionalities, feel free to open an issue or submit a pull request. Let’s work together to improve the tool! 🚀
+
+## License 📄
+
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it in accordance with the terms of the license.
