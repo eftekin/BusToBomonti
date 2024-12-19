@@ -1,4 +1,4 @@
-# Bus Schedule Streamlit 🚍
+# BusToBomonti 🚍
 
 ## About 📍
 
@@ -10,6 +10,7 @@ Ever found yourself juggling between two different bus schedules, trying to catc
 - Combines and sorts the schedules for easy viewing.
 - Displays the upcoming bus schedule based on the current time using **Streamlit**.
 - User-friendly interface to help you plan your commute efficiently.
+- Estimates crowd density based on the time of day.
 
 ## Prerequisites ⚙️
 
@@ -19,6 +20,7 @@ To get started with the project, you'll need the following dependencies:
 - **Requests** – For fetching data from the websites.
 - **BeautifulSoup** – For parsing the HTML data.
 - **Pytz** – For handling time zones.
+- **Altair** – For data visualization (if needed).
 
 Ensure these dependencies are installed before running the project.
 
@@ -26,33 +28,33 @@ Ensure these dependencies are installed before running the project.
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/eftekin/Bus-Schedule-Streamlit.git
-```
+   ```bash
+   git clone https://github.com/eftekin/BusToBomonti.git
+   ```
 
 2. Navigate to the project directory:
 
-```bash
-cd Bus-Schedule-Streamlit
-```
+   ```bash
+   cd BusToBomonti
+   ```
 
 3. Install the required dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. Run the app:
 
-```bash
-streamlit run bus_schedule.py
-```
+   ```bash
+   streamlit run bus_schedule.py
+   ```
 
 ## Screenshots 📸
 
 Here’s a sneak peek at the app interface:
 
-![Bus Schedule Screenshot](https://github.com/eftekin/Bus-Schedule-Streamlit/assets/75522456/51050366-5c9a-44cf-a978-7ccaf3891bc3)
+<img src="https://github.com/user-attachments/assets/5e0a12ff-c7b3-4490-a022-8e3ccde09369" alt="Bus Schedule Screenshot" width="600">
 
 ## Contributions 🤝
 
