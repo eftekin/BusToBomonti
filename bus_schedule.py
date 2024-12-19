@@ -131,10 +131,10 @@ def estimate_crowd(time_str):
     """Estimate crowd density based on time."""
     hour = int(time_str.split(":")[0])
     if hour in [7, 8, 9, 17, 18, 19]:  # Peak hours
-        return "crowded", "#ff4b4b"
+        return "crowded", "#e74c3c"  # Red
     elif hour in [10, 11, 12, 13, 14, 15, 16]:  # Moderate hours
-        return "moderate", "#ffa64b"
-    return "empty", "#4bb543"
+        return "moderate", "#f39c12"  # Orange
+    return "empty", "#2ecc71"  # Green
 
 
 def set_custom_style():
@@ -143,7 +143,7 @@ def set_custom_style():
         """
         <style>
         .bus-card {
-            background-color: #f8f9fa;
+            background-color: #2c2f33;
             border-radius: 10px;
             padding: 20px;
             margin: 10px 0;
@@ -156,19 +156,19 @@ def set_custom_style():
         .bus-time {
             font-size: 28px;
             font-weight: bold;
-            color: #1f77b4;
+            color: #7289da;
         }
         .bus-label {
             font-size: 20px;
-            color: #666;
+            color: #99aab5;
             font-style: italic;
         }
         .next-bus {
-            background-color: #e6f3ff;
-            border-left: 5px solid #1f77b4;
+            background-color: #23272a;
+            border-left: 5px solid #7289da;
         }
         .header-container {
-            background-color: #1f77b4;
+            background-color: #7289da;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
@@ -177,9 +177,9 @@ def set_custom_style():
         .no-bus-message {
             text-align: center;
             padding: 40px;
-            background-color: #fff3cd;
+            background-color: #f04747;
             border-radius: 10px;
-            color: #856404;
+            color: white;
         }
         /* Additional styles for mobile optimization */
         @media (max-width: 768px) {
