@@ -130,9 +130,9 @@ def get_current_time():
 def estimate_crowd(time_str):
     """Estimate crowd density based on time."""
     hour = int(time_str.split(":")[0])
-    if hour in [8, 16, 17, 18, 19]:  # Peak hours
+    if hour in [7, 8, 9, 17, 18, 19]:  # Peak hours
         return "crowded", "#ff4b4b"
-    elif hour in [7, 9, 11, 12, 14, 15, 20]:  # Moderate hours
+    elif hour in [10, 11, 12, 13, 14, 15, 16]:  # Moderate hours
         return "moderate", "#ffa64b"
     return "empty", "#4bb543"
 
