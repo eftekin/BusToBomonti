@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 
 import pytz
@@ -219,13 +218,38 @@ def set_custom_style():
     )
 
 
+def format_time_difference(minutes, lang):
+    """
+    Format time difference in hours and minutes when over 60 minutes.
+
+    Args:
+        minutes (int): Time difference in minutes
+        lang (str): Language code ('en' or 'tr')
+
+    Returns:
+        str: Formatted time string
+    """
+    if minutes < 60:
+        return f"{minutes}"
+
+    hours = minutes // 60
+    remaining_minutes = minutes % 60
+
+    if lang == "tr":
+        if remaining_minutes == 0:
+            return f"{hours} saat"
+        return f"{hours} saat {remaining_minutes} dakika"
+    else:
+        if remaining_minutes == 0:
+            return f"{hours} hour{'s' if hours > 1 else ''}"
+        return f"{hours} hour{'s' if hours > 1 else ''} {remaining_minutes} minutes"
+
+
 def main():
     """
     Main function to run the Streamlit app.
     """
-    st.set_page_config(
-        page_title="Bus Schedule: Alibeyköy → Bomonti", page_icon="🚌", layout="wide"
-    )
+    st.set_page_config(page_title="Bus Schedule: Alibeyköy → Bomonti", page_icon="🚌")
 
     set_custom_style()
 
@@ -309,13 +333,20 @@ def main():
                     crowd_status, crowd_color = estimate_crowd(time)
                     card_class = "bus-card next-bus" if first_bus else "bus-card"
 
+                    formatted_time = format_time_difference(time_diff, lang)
+                    time_text = f"{formatted_time} " + (
+                        t["minutes_until"]
+                        if time_diff < 60
+                        else ("kaldı" if lang == "tr" else "until departure")
+                    )
+
                     st.markdown(
                         f"""
                         <div class="{card_class}">
                             <div class="bus-time">🚌 {time}</div>
                             <div class="bus-label">{"Line" if lang == "en" else "Hat"} {label}</div>
                             <div style="color: #666; margin-top: 5px;">
-                                {time_diff} {t["minutes_until"]}
+                                {time_text}
                             </div>
                             <div class="crowd-indicator" style="background-color: {crowd_color}20; color: {crowd_color}">
                                 {t[crowd_status]}
