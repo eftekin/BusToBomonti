@@ -131,89 +131,138 @@ def estimate_crowd(time_str):
     """Estimate crowd density based on time."""
     hour = int(time_str.split(":")[0])
     if hour in [7, 8, 9, 17, 18, 19]:  # Peak hours
-        return "crowded", "#e74c3c"  # Red
+        return "crowded", "#f87171"  # Daha canlı kırmızı
     elif hour in [10, 11, 12, 13, 14, 15, 16]:  # Moderate hours
-        return "moderate", "#f39c12"  # Orange
-    return "empty", "#2ecc71"  # Green
+        return "moderate", "#fbbf24"  # Daha canlı turuncu
+    return "empty", "#34d399"  # Daha canlı yeşil
 
 
 def set_custom_style():
-    """Add custom CSS styling to the app."""
     st.markdown(
         """
         <style>
         .bus-card {
-            background-color: #2c2f33;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            border: 1px solid #e5e7eb;
         }
         .bus-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .bus-time {
-            font-size: 28px;
-            font-weight: bold;
-            color: #7289da;
+            font-size: 32px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #1e40af;
+        }
+        .bus-time span {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .bus-label {
-            font-size: 20px;
-            color: #99aab5;
-            font-style: italic;
+            font-size: 18px;
+            color: #3b82f6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 8px 0;
+            font-weight: 500;
+            border: 1px solid #bfdbfe;
         }
         .next-bus {
-            background-color: #23272a;
-            border-left: 5px solid #7289da;
+            background: linear-gradient(135deg, #fafafa 0%, #f8fafc 100%);
+            border: 2px solid #bfdbfe;
+            transition: all 0.2s ease;
+        }
+        .next-bus:hover {
+            border: 2px solid #3b82f6;
         }
         .header-container {
-            background-color: #7289da;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            padding: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+        .header-container h1 {
             color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 2em;
+            margin-bottom: 8px;  /* Reduced from 16px to 8px */
+        }
+        .header-container p {
+            color: white;
+            font-size: 1.2em;    /* Increased from 1em to 1.2em */
+            margin: 0;           /* Remove default margins */
         }
         .no-bus-message {
             text-align: center;
-            padding: 40px;
-            background-color: #f04747;
-            border-radius: 10px;
-            color: white;
+            padding: 48px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: #1f2937;
+            border-radius: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
         }
-        /* Additional styles for mobile optimization */
+        .crowd-indicator {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-top: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
+            backdrop-filter: blur(4px);
+        }
+        /* Mobile optimization */
         @media (max-width: 768px) {
             .bus-card {
                 padding: 12px;
-                margin: 6px 0;
+                margin: 8px 0;
             }
             .bus-time {
                 font-size: 20px;
             }
             .bus-label {
-                font-size: 14px;
+                font-size: 12px;
+                padding: 3px 8px;
             }
             .header-container {
-                padding: 10px;
-                margin-bottom: 15px;
+                padding: 16px;
+                margin-bottom: 16px;
+                border-radius: 8px;
             }
             .header-container h1 {
-                font-size: 20px;
-                margin: 0;
+                font-size: 1.2em;
             }
             .header-container p {
-                font-size: 14px;
-                margin: 5px 0 0 0;
+                font-size: 1em;
+                padding: 4px 8px;
             }
             .crowd-indicator {
                 font-size: 12px;
-                padding: 3px 6px;
-                border-radius: 10px;
-                margin-top: 4px;
+                padding: 4px 8px;
+                margin-top: 8px;
+            }
+            .no-bus-message {
+                padding: 24px;
             }
         }
         </style>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
@@ -301,8 +350,8 @@ def main():
     st.markdown(
         f"""
         <div class="header-container">
-            <h1 style='text-align:center; margin:0;'>{page_title}</h1>
-            <p style='text-align:center; margin:10px 0 0 0;'>{t["current_time"]}: {current_time}</p>
+            <h1>{page_title}</h1>
+            <p>{t["current_time"]}: {current_time}</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -343,7 +392,7 @@ def main():
                     st.markdown(
                         f"""
                         <div class="{card_class}">
-                            <div class="bus-time">🚌 {time}</div>
+                            <div class="bus-time">🚌 <span>{time}</span></div>
                             <div class="bus-label">{"Line" if lang == "en" else "Hat"} {label}</div>
                             <div style="color: #666; margin-top: 5px;">
                                 {time_text}
